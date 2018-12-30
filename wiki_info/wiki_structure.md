@@ -1,6 +1,6 @@
 # Wiki Structure
 
-Entries will be grouped by:
+[Entries](./entry_structure.md) will be [grouped](./group_structure) by:
 
 - projects
 - language
