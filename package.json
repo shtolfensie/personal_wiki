@@ -1,0 +1,24 @@
+{
+  "name": "personal_wiki",
+  "version": "1.0.0",
+  "description": "This is a simple person wiki of mine, where I write down *some* of the things I learn along my stumble into the world of cs.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shtolfensie/personal_wiki.git"
+  },
+  "author": "Filip Stolfa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shtolfensie/personal_wiki/issues"
+  },
+  "homepage": "https://github.com/shtolfensie/personal_wiki#readme",
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
