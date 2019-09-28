@@ -13,7 +13,7 @@ Logic gates:
 
 #### Gate diagram
 
-[Gate diagram image](./nand_gate_diagram.png)
+![Gate diagram image](./nand_gate_diagram.png)
 
 #### Functional specification
 
@@ -24,16 +24,16 @@ if (a==1 and b==1)
 
 #### Truth table
 
-| a   | b   | out |
-| --- | --- | --: |
-| 0   | 0   |   1 |
-| 0   | 1   |   1 |
-| 1   | 0   |   1 |
-| 1   | 1   |   0 |
+| a   | b   |  out |
+| --- | --- | ---: |
+| 0   | 0   |    1 |
+| 0   | 1   |    1 |
+| 1   | 0   |    1 |
+| 1   | 1   |    0 |
 
 ### Composite gates
 
-[Example of a composite gate](./composite_gate.png) <- three way AND gate
+![Example of a composite gate](./composite_gate.png) <- three way AND gate
 
 ### Interface/Implementation
 
