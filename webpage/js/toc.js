@@ -22,6 +22,7 @@ async function buildTOC() {
     }
   }
   console.log(tree);
+  return tree;
 }
 
 function isDir(file) {
@@ -52,4 +53,4 @@ function createTreeObject({ name, download_url, type }) {
   return { name, download_url, type };
 }
 
-buildTOC();
+// export default buildTOC;
