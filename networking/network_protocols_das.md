@@ -14,7 +14,7 @@ Network stack does:
 In the old days of analog telephone, two users were connected by 'one long wire'.  
 This isn't possible because of the number of internet nodes.
 
-Instead, data is bucket-brigaded - handed off from one router to the next
+Instead, data is bucket-brigaded - handed off from one router to the next.
 Each router maintains a crude routing table showing which routers are closer to which part of the internet.
 
 Routing breaks down into two problems:
@@ -40,11 +40,22 @@ The transfer was done over HTTP, a protocol layerd over TCP - Transmission Contr
 
 It took 14 seconds - average rate of 4,400 packets per second - 205 microsends per packet.
 
-TCP packet reassembly is done using a counter. Each packet is assifned a sequence number when sent. Once all packets are in order with no gaps - we know the whole file was received. (TCP sequence numbers aren't just integers increasing by 1)
+TCP packet reassembly is done using a counter. Each packet is assigned a sequence number when sent. Once all packets are in order with no gaps - we know the whole file was received. (TCP sequence numbers aren't just integers increasing by 1)
 
 TCP doen't say anythong about the file size - that is the job of hogher level protocols. HTTP responses contain a "Content-Length" header specifying the response length in bytes - that is why most protocols'headers come before the response payload. The client reads the Content-Length, then keeps reading TCP packets and assembling them, until it has all of the butes specified by the header.
 
 "the client" here means the entire receiving computer. TCP reassembly happens inside the kernel. Web browsers, culr, wget, ... don't manually reassemble TCP packets. The kernel doen't handle HTTP, so applications need to understand the headers and know how many bytes to read.
+
+## Transmission windows and slow start
+
+Every TCP packet has a next sequence number - the number of the next packet to be recieved.  
+Occasionally the client sends a message of acknowledgement - ACK - saying it recieved all pakcets up to this number.  
+A linux kernel sends an ACK after every ten packets on new connection. This is controlled by the TCP_INIT_CWND constat. CWND stands for congestion window - the amount of data allowed in flight at once. If the network becomes congested - overloaded - the window size is reduced.
+
+Connections begin with a slow start - small congestion windows. If no packets are lost, the receiver will continually increase the size of the window.
+
+If a packet is lost, the window is decreased and tahn increased again. By adjusting the size of the window and other parametes, the sender and receiver keep data moving as quickly as the network allows.  
+Each side sends ACKs. By using all these parameters, we take full advantage of asymmetric upstream and downstream bandwidth.
 
 ## Interesting Links
 
